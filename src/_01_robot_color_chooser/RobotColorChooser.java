@@ -4,24 +4,49 @@
 package _01_robot_color_chooser;
 
 import javax.swing.JOptionPane;
+
+import org.jointheleague.graphical.robot.Robot;
+
 import java.awt.Color;
 
 public class RobotColorChooser {
 	public static void main(String[] args) {
-		//1. Create a new Robot
+				Robot rob = new Robot();
+				rob.setSpeed(100);
+				
+				for(int i = 0; i<5; i++) {
+					
+				
 		
-		//3. Ask the user what color they would like the robot to draw
+		String input = JOptionPane.showInputDialog("what would you like the color to be. Your choices are green, red, and blue. ");
 		
-		//5. Use an if/else statement to set the pen color that the user requested
+	
+	
+if(input.equalsIgnoreCase("green")) {
+	rob.setPenColor(Color.green);
+}
+else if(input.equalsIgnoreCase("red")) {
+	rob.setPenColor(Color.red);
+}
+else if(input.equalsIgnoreCase("blue")) {
+	rob.setPenColor(Color.blue);
+}
+else
+{
+	rob.setRandomPenColor();
+}
 
-        //6. If the user doesn’t enter anything, choose a random color
-
-        //7. Put a loop around your code so that you keep asking the user for more colors & drawing them
+        
+	rob.setPenWidth(10);
 		
-		//4. Set the pen width to 10
-		
-	    //2. Make the robot draw a shape (this will take more than one line of code)
 
+		rob.penDown();
+		for(int j = 0; j<4; j++) {
+			rob.move(200);
+
+			rob.turn(90);
+		}
+		}
 
 	}
 }
