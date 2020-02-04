@@ -1,16 +1,47 @@
 package _16_obedient_robot;
 
+import java.awt.Color;
+
+import javax.swing.JOptionPane;
+
 import org.jointheleague.graphical.robot.Robot;
 
 public class obeyRobot {
-	static Robot rob = new Robot();
+	static Robot rob = new Robot("mini");
 	public static void main(String[] args) {
 	
-	rob.setSpeed(50);
+	rob.setSpeed(100);
 	
 	rob.penDown();
 	
-	drawCircle();
+	String color = JOptionPane.showInputDialog(" Choose a color, your choices are green, blue, and red");
+	
+if(color.equalsIgnoreCase("green")) {
+		rob.setPenColor(Color.green);
+	
+	}
+	if(color.equalsIgnoreCase("blue")) {
+		rob.setPenColor(Color.blue);
+	}
+	
+	if(color.equalsIgnoreCase("red")) {
+		
+			rob.setPenColor(Color.red);
+	}	
+	
+	String shape= JOptionPane.showInputDialog("CHoose a shape, your choices are square tringle and circle");
+	
+	if(shape.equalsIgnoreCase("square")) {
+		
+		drawSquare();
+	}
+	if(shape.equalsIgnoreCase("triangle")) {
+		drawTriangle();
+	}
+	
+	if(shape.equalsIgnoreCase("circle")) {
+		drawCircle();
+	}
 	
 	}
 	static void drawSquare() {
@@ -24,7 +55,7 @@ public class obeyRobot {
 	
 
 	}
-	static void drawTrinagle() {
+	static void drawTriangle() {
 		
 		rob.turn(30);
 		
@@ -38,8 +69,8 @@ public class obeyRobot {
 	static void drawCircle() {
 		
 		for(int i =0; i<360; i++) {
-			rob.turn(1);
-			rob.move(360);
+rob.move(1);
+rob.turn(1);
 		}
 		
 		
